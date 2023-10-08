@@ -1,0 +1,6 @@
+notebook
+pandas
+scikit-learn
+psycopg2-binary
+apache-airflow-providers-postgres
+apache-airflow-providers-amazon
