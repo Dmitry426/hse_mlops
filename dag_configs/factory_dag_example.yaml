@@ -1,0 +1,33 @@
+connections:
+  postgres_conn_name: pg_connection
+  s3_connection: minio_s3
+  bucket: airflow
+  data_path: datasets/
+
+dag_settings:
+  owner: Dmitrii
+  depends_on_past: False
+  email_on_failure: False
+  email_on_retry:  False
+  retries: 1
+  retry_delay: 1
+
+train_models:
+  model_names:
+    - rf
+    - lr
+    - hgb
+  model_classes:
+    - RandomForestRegressor
+    - LinearRegression
+    - HistGradientBoostingRegressor
+  target: MedHouseVal
+  features:
+    - MedInc
+    - HouseAge
+    - AveRooms
+    - AveBedrms
+    - Population
+    - AveOccup
+    - Latitude
+    - Longitude
